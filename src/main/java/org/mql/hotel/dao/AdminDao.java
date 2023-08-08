@@ -7,6 +7,6 @@ import org.mql.hotel.models.Admin;
 
 public interface AdminDao {	
 	public boolean exist(Admin a);
-	public Admin upDete(Admin a1,Admin a2);
+	public boolean upDete(Admin a1,Admin a2);
 	
 }

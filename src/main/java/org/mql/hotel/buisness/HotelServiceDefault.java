@@ -78,7 +78,7 @@ public class HotelServiceDefault implements HotelService{
 	@Override
 	public boolean add(Reservation a) {
 	
-		return false;
+		return reservationDao.insert(a);
 	}
 
 

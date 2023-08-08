@@ -24,9 +24,9 @@ public class AdminDaoMySQL implements AdminDao {
 	}
 
 	@Override
-	public Admin upDete(Admin a1, Admin a2) {
+	public boolean upDete(Admin a1, Admin a2) {
 		// TODO Auto-generated method stub
-		return null;
+		return db.update(tableName, a1, a2);
 	}
 
 

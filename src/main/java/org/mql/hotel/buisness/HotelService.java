@@ -21,7 +21,7 @@ public interface HotelService {
 	public boolean add(Reservation a);
 	public List<Reservation> reservations();
 	public Reservation reservation(String cin);
-	public Reservation change(String cin);
+	public Reservation changeReserv(String cin);
 	
 	
 }
