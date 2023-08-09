@@ -10,7 +10,7 @@ public interface ReservationDao {
 	public boolean insert(Reservation a);
 	public List<Reservation> selectAll();
 	public Reservation select(String id);
-	public Boolean updete(Reservation a1 ,Reservation a2);
-	public Boolean delet(Reservation r);
+	public Boolean update(Reservation a1 ,Reservation a2);
+	public Boolean delete(Reservation r);
 
 }

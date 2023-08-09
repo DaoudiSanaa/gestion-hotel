@@ -32,10 +32,6 @@ public class HotelServiceDefault implements HotelService{
 	}
 
 
-
-
-
-
 	public boolean add(Room a) {
 		return roomDao.insert(a);
 	}
@@ -97,7 +93,7 @@ public class HotelServiceDefault implements HotelService{
 
 
 	@Override
-	public Reservation change(String cin) {
+	public Reservation changeReserv(String cin) {
 		// TODO Auto-generated method stub
 		return null;
 	}
