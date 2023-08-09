@@ -9,6 +9,6 @@ public interface RoomDao {
 	public boolean insert(Room a);
 	public List<Room> selectAll();
 	public Room select(int id);
-	public Boolean updete(Room r1,Room r2);
-	public Boolean delet(Room r);
+	public Boolean update(Room r1,Room r2);
+	public Boolean delete(Room r);
 }

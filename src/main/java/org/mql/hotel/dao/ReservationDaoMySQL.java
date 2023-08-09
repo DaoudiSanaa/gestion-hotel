@@ -2,7 +2,7 @@ package org.mql.hotel.dao;
 
 import java.util.List;
 
-import org.mql.hotel.dao.mapper.hotelMapper;
+import org.mql.hotel.dao.mapper.HotelMapper;
 import org.mql.hotel.models.Reservation;
 import org.mql.hotel.models.Room;
 import org.mql.java.jdbc.Database;
@@ -26,7 +26,7 @@ public class ReservationDaoMySQL implements ReservationDao {
 
 	@Override
 	public List<Reservation> selectAll() {
-		return hotelMapper.getReservations(db.select(tableName));
+		return HotelMapper.getReservations(db.select(tableName));
 	}
 
 	@Override
@@ -44,14 +44,14 @@ public class ReservationDaoMySQL implements ReservationDao {
 
 
 	@Override
-	public Boolean updete(Reservation a1, Reservation a2) {
+	public Boolean update(Reservation a1, Reservation a2) {
 	
 		return db.update(tableName, a1, a2);
 	}
 
 
 	@Override
-	public Boolean delet(Reservation r) {
+	public Boolean delete(Reservation r) {
 		
 		return db.delete(tableName, r);
 	}

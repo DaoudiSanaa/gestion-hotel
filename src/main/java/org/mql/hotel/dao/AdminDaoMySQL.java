@@ -2,7 +2,9 @@ package org.mql.hotel.dao;
 
 import java.util.List;
 
-import org.mql.hotel.dao.mapper.hotelMapper;
+import org.mql.hotel.buisness.HotelService;
+import org.mql.hotel.buisness.ServiceFactory;
+import org.mql.hotel.dao.mapper.HotelMapper;
 import org.mql.hotel.models.Admin;
 import org.mql.hotel.models.Client;
 import org.mql.hotel.models.Room;
@@ -19,13 +21,12 @@ public class AdminDaoMySQL implements AdminDao {
 
 	@Override
 	public boolean exist(Admin a) {
-		// TODO Auto-generated method stub
-		return false;
+		if(HotelMapper.getAdmins(db.select("admin")) == null) return false;
+		return true;
 	}
 
 	@Override
-	public boolean upDete(Admin a1, Admin a2) {
-		// TODO Auto-generated method stub
+	public boolean update(Admin a1, Admin a2) {
 		return db.update(tableName, a1, a2);
 	}
 

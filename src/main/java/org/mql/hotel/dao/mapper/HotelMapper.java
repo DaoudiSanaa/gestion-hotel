@@ -11,9 +11,9 @@ import org.mql.hotel.models.Room;
 
 
 
-public class hotelMapper {
+public class HotelMapper {
 
-	public hotelMapper() {
+	public HotelMapper() {
 		// TODO Auto-generated constructor stub
 	}
 	
