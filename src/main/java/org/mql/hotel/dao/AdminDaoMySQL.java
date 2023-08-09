@@ -24,7 +24,6 @@ public class AdminDaoMySQL implements AdminDao {
 		if(HotelMapper.getAdmins(db.select("admin")) == null) return false;
 		return true;
 	}
-
 	@Override
 	public boolean update(Admin a1, Admin a2) {
 		return db.update(tableName, a1, a2);
