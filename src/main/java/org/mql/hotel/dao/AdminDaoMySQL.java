@@ -21,7 +21,7 @@ public class AdminDaoMySQL implements AdminDao {
 
 	@Override
 	public boolean exist(Admin a) {
-		if(HotelMapper.getAdmins(db.select("admin")) == null) return false;
+		if(HotelMapper.getAdmins(db.select(tableName)).size() == 0) return false;
 		return true;
 	}
 	@Override

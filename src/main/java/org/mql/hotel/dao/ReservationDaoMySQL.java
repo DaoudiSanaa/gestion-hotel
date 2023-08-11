@@ -30,10 +30,10 @@ public class ReservationDaoMySQL implements ReservationDao {
 	}
 
 	@Override
-	public Reservation select(String cin) {
+	public Reservation select(int id) {
 		List<Reservation> reservations=selectAll();
 		for (Reservation reservation : reservations) {
-			if(reservation.getCin()==cin) {
+			if(reservation.getId()==id) {
 				return reservation;
 			}
 			
