@@ -8,12 +8,11 @@ public class Client {
 	private String lastName;
 	private String number;
 	private String sexe;
-	private String brithDate;
+	private Date brithDate;
 	
 	public Client() {
-		// TODO Auto-generated constructor stub
 	}
-	
+	//format date = 2001-15-03
 	public Client(String cin, String firstName, String lastName, String number, String sexe, String brithDate) {
 		super();
 		this.cin = cin;
@@ -21,7 +20,7 @@ public class Client {
 		this.lastName = lastName;
 		this.number = number;
 		this.sexe = sexe;
-		this.brithDate = brithDate;
+		this.brithDate = Date.valueOf(brithDate);
 	}
 	public String getCin() {
 		return cin;
@@ -53,10 +52,10 @@ public class Client {
 	public void setSexe(String sexe) {
 		this.sexe = sexe;
 	}
-	public String getBrithDate() {
+	public Date getBrithDate() {
 		return brithDate;
 	}
-	public void setBrithDate(String brithDate) {
+	public void setBrithDate(Date brithDate) {
 		this.brithDate = brithDate;
 	}
 
