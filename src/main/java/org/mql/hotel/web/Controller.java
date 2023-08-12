@@ -28,12 +28,12 @@ public class Controller extends HttpServlet{
 	}
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String path=request.getRequestURL()+"";
-		if(path.endsWith("/clients")) {
+	
+		if(request.getRequestURI().endsWith("/clients")) {
 			PrintWriter out = response.getWriter();
 			out.println(clientAction.getAllClients());
 			
-		}else if (path.endsWith("/client")) {
+		}else if (request.getRequestURI().endsWith("/client")) {
 			String cin = request.getParameter("cin");
 			PrintWriter out = response.getWriter();
 			out.println(clientAction.getClientById(cin));
