@@ -1,5 +1,8 @@
 package org.mql.hotel.exemple;
 
+import java.sql.Date;
+import java.util.Calendar;
+
 import org.mql.hotel.buisness.HotelService;
 import org.mql.hotel.buisness.ServiceFactory;
 import org.mql.hotel.models.Client;
@@ -15,9 +18,12 @@ public class Exemple {
 	
 
 	private void exp01() {
-		Client c = new Client("kh235", "sanaa", "daoudi","0654875" , "F", "2001-10-03");
-		//services.add(c);
-		System.out.println(services.client(c.getCin()));
+		Client c = new Client("kjhsj235", "sanaa", "daoudi","0654875" , "F", "2001-10-03");
+		//services.addClient(c);
+		//System.out.println(services.client(c.getCin()));
+		Client b = services.client(c.getCin());
+		System.out.println(b.getBrithDate());
+		
 		
 	}
 

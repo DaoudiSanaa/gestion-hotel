@@ -36,7 +36,7 @@ public class Controller extends HttpServlet{
 		}else if (path.endsWith("/client")) {
 			String cin = request.getParameter("cin");
 			PrintWriter out = response.getWriter();
-			out.println(roomAction.getAllRooms());
+			out.println(clientAction.getClientById(cin));
 		}
 		
 	}
