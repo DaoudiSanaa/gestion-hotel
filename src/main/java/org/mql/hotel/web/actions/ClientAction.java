@@ -2,6 +2,7 @@ package org.mql.hotel.web.actions;
 
 import org.mql.hotel.buisness.HotelService;
 import org.mql.hotel.buisness.ServiceFactory;
+import org.mql.hotel.models.Client;
 
 import com.google.gson.Gson;
 
@@ -30,9 +31,18 @@ public class ClientAction {
 		return gson.toJson(model);
 	}
 	
-	public String getClientByKeyword(String id) {
+	public String getClientById(String id) {
 		model = service.client(id);
 		return gson.toJson(model);
+	}
+	
+	public boolean removeClinet(Client c) {
+		return service.removeClient(c);
+	}
+	
+	public boolean modifyClient(Client oldClient, Client newClient) {
+		return service.modifyClient(oldClient, newClient);
+		
 	}
 	
 	/*

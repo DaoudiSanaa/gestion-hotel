@@ -32,72 +32,100 @@ public class HotelServiceDefault implements HotelService{
 	}
 
 
-	public boolean add(Room a) {
+	@Override
+	public boolean addRoom(Room a) {
 		return roomDao.insert(a);
 	}
 
+
+	@Override
 	public List<Room> rooms() {
 		return roomDao.selectAll();
 	}
 
+
+	@Override
 	public Room room(int id) {
 		return roomDao.select(id);
 	}
 
-	
-	
+
 	@Override
-	public boolean add(Client a) {
+	public boolean removeRoom(Room r) {
+		return roomDao.delete(r);
+	}
+
+
+	@Override
+	public boolean modifyRoom(Room r1, Room r2) {
+		return roomDao.update(r1, r2);
+	}
+
+
+	@Override
+	public boolean addClient(Client a) {
 		return clientDao.insert(a);
 	}
 
+
 	@Override
 	public List<Client> clients() {
-	
 		return clientDao.selectAll();
 	}
 
+
 	@Override
 	public Client client(String cin) {
-		
 		return clientDao.select(cin);
 	}
 
 
 	@Override
-	public boolean authentication(Admin a) {
-		
-		return false;
+	public boolean removeClient(Client c) {
+		return clientDao.delete(c);
 	}
 
 
 	@Override
-	public boolean add(Reservation a) {
-	
+	public boolean modifyClient(Client oldClient, Client newClient) {
+		return clientDao.update(oldClient, newClient);
+	}
+
+
+	@Override
+	public boolean authentication(Admin a) {
+		return adminDao.exist(a);
+	}
+
+
+	@Override
+	public boolean addReservation(Reservation a) {
 		return reservationDao.insert(a);
 	}
 
 
 	@Override
 	public List<Reservation> reservations() {
-		// TODO Auto-generated method stub
-		return null;
+		return reservationDao.selectAll();
 	}
 
 
 	@Override
-	public Reservation reservation(String cin) {
-		// TODO Auto-generated method stub
-		return null;
+	public Reservation reservation(int id, String cin) {
+		return reservationDao.select(id);
 	}
 
 
 	@Override
-	public Reservation changeReserv(String cin) {
-		// TODO Auto-generated method stub
-		return null;
+	public boolean changeReserv(Reservation r1, Reservation r2) {
+		return reservationDao.update(r1, r2);
 	}
 
+
+	@Override
+	public boolean removeReservation(Reservation r) {
+		return reservationDao.delete(r);
+	}
 
 	
 }

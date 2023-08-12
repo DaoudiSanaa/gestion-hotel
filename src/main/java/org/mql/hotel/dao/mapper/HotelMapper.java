@@ -1,5 +1,6 @@
 package org.mql.hotel.dao.mapper;
 
+import java.sql.Date;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Vector;
@@ -53,7 +54,7 @@ public class HotelMapper {
 			a.setLastName(row[2]);
 			a.setNumber(row[3]);
 			a.setSexe(row[4]);
-			a.setBrithDate(row[5]);
+			a.setBrithDate(Date.valueOf(row[5]));
 			
 			
 		} catch (Exception e) {
@@ -100,8 +101,8 @@ public class HotelMapper {
 		try {
 			a.setCin(row[0]);
 			a.setId(Integer.parseInt(row[1]));
-			a.setArrival(row[2]);
-			a.setDeparture(row[3]);
+			a.setArrival(Date.valueOf(row[2]));
+			a.setDeparture(Date.valueOf(row[3]));
 			a.setTotalPrice(Double.parseDouble(row[4]));
 			
 			
