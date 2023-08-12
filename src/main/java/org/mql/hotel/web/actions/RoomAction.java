@@ -14,12 +14,11 @@ public class RoomAction {
 	private HotelService service;
 	
 	private Object model;
-	private Gson gson;
 
 	
 	public RoomAction() {
 		service = ServiceFactory.getService();
-		gson =new Gson();
+		
 	}
 	
 	/*
@@ -27,11 +26,13 @@ public class RoomAction {
 	 */
 	public String getAllRooms() {
 		model = service.rooms();
+		Gson gson =new Gson();
 		return gson.toJson(model);
 	}
 	
 	public String getRoomByKeyword(int id) {
 		model = service.room(id);
+		Gson gson =new Gson();
 		return gson.toJson(model);
 	}
 	
