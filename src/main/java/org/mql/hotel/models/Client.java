@@ -7,14 +7,14 @@ public class Client {
 	private String firstName;
 	private String lastName;
 	private String number;
-	private String sexe;
 	private Date brithDate;
+	private String sexe;
 	
 	
 	public Client() {
 	}
 	//format date = 2001-15-03
-	public Client(String cin, String firstName, String lastName, String number, String sexe, String brithDate) {
+	public Client(String cin, String firstName, String lastName, String number, String brithDate, String sexe) {
 		super();
 		this.cin = cin;
 		this.firstName = firstName;
