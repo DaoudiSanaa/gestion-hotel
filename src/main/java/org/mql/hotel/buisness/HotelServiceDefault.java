@@ -19,7 +19,7 @@ public class HotelServiceDefault implements HotelService{
 	private AdminDao adminDao;
 	private ReservationDao reservationDao;
 	
-	HotelServiceDefault() {
+	public HotelServiceDefault() {
 	}
 	
 

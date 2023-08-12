@@ -10,12 +10,11 @@ public class AdminAction {
 	private HotelService service;
 	
 	private Object model;
-	private Gson gson;
 
 	
 	public AdminAction() {
 		service = ServiceFactory.getService();
-		gson = new Gson();
+		
 	}
 	
 	/*
@@ -23,6 +22,7 @@ public class AdminAction {
 	 */
 	public String getAdmin() {
 		//model = service.
+		Gson gson = new Gson();
 		return gson.toJson(model);
 	}
 	/*

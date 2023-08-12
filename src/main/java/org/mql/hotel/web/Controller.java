@@ -20,13 +20,15 @@ public class Controller extends HttpServlet{
 	private AdminAction adminAction;
 
 	private static final long serialVersionUID = 1L;
-	@Override
+
+	
 	public void init() throws ServletException {
+		super.init();
 		clientAction =  new ClientAction();
 		roomAction = new RoomAction();
-		adminAction = new AdminAction();
+		//adminAction = new AdminAction();
 	}
-	@Override
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
 		if(request.getRequestURI().endsWith("/clients")) {
@@ -41,7 +43,6 @@ public class Controller extends HttpServlet{
 		
 	}
 	
-	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doPost(request, response);
