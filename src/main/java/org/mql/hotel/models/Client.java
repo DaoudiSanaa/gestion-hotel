@@ -10,6 +10,7 @@ public class Client {
 	private String sexe;
 	private Date brithDate;
 	
+	
 	public Client() {
 	}
 	//format date = 2001-15-03
