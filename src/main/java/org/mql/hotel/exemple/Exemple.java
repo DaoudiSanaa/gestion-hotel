@@ -18,11 +18,12 @@ public class Exemple {
 	
 
 	private void exp01() {
-		Client c = new Client("kjhsj235", "sanaa", "daoudi","0654875" , "F", "2001-10-03");
-		//services.addClient(c);
-		//System.out.println(services.client(c.getCin()));
-		Client b = services.client(c.getCin());
-		System.out.println(b.getBrithDate());
+		Client c = new Client("eekjhsrrj235", "sanaa", "daoudi","0654875" , "2001-10-03", "F");
+		services.addClient(c);
+		System.out.println(services.client(c.getCin()));
+		//Client b = services.client(c.getCin());
+		//System.out.println(b.getBrithDate());
+		
 		
 		
 	}
