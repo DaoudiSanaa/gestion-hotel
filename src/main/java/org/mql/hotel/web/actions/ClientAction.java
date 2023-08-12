@@ -15,12 +15,10 @@ public class ClientAction {
 	private HotelService service;
 	
 	private Object model;
-	private Gson gson;
 
 	
 	public ClientAction() {
 		service = ServiceFactory.getService();
-		gson = new Gson();
 	}
 	
 	/*
@@ -28,11 +26,14 @@ public class ClientAction {
 	 */
 	public String getAllClients() {
 		model = service.clients();
+		Gson gson = new Gson();
 		return gson.toJson(model);
 	}
 	
 	public String getClientById(String id) {
 		model = service.client(id);
+
+		Gson gson = new Gson();
 		return gson.toJson(model);
 	}
 	

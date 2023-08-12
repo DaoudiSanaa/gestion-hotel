@@ -10,6 +10,7 @@ import org.mql.hotel.models.Client;
 import org.mql.hotel.models.Room;
 import org.mql.java.jdbc.Database;
 
+
 public class AdminDaoMySQL implements AdminDao {
 	
 	private String tableName = "admin";
