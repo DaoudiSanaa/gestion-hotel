@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="css/style.css">
+<script type="text/javascript" src="js/fetch.js"></script>
+</head>
+	<body>
+	<h1>Nouvel client</h1>
+	<form class="form">
+		<div>
+			<span>CIN :</span>
+			<input type="text" id="cin"/>
+			<span>firstName :</span>
+			<input type="text" id="firstName"/>
+			<span>lastName:</span>
+			<input type="text" id="lastName"/>
+			<span>number :</span>
+			<input type="text" id="number"/>
+			<span>sexe :</span>
+			<input type="text" id="sexe"/>
+			<span>birthDate:</span>
+			<input type="text" id="birthDate"/>
+		</div>
+		<div>
+			<input type="button" value="Enregistrer" onclick="addClient()" />
+		</div>
+	</form>
+	<div id="result">
+		
+	</div>
+	</body>
+</html>

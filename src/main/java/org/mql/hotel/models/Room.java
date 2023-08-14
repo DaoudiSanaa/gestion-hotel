@@ -2,15 +2,15 @@ package org.mql.hotel.models;
 
 public class Room {
 	private int id;
-	private String stat;
 	private int beds;
+	private String stat;
 	private double price;
 	public Room() {
 		// TODO Auto-generated constructor stub
 	}
 	
 	
-	public Room(int id, String stat, int beds, double price) {
+	public Room(int id,  int beds,String stat, double price) {
 		super();
 		this.id = id;
 		this.stat = stat;
