@@ -24,8 +24,8 @@ public class HotelMapper {
 		
 		try {
 			a.setId(Integer.parseInt(row[0]));
-			a.setStat(row[1]);
-			a.setBeds(Integer.parseInt(row[2]));
+			a.setBeds(Integer.parseInt(row[1]));
+			a.setStat(row[2]);
 			a.setPrice(Double.parseDouble(row[3]));
 			
 		} catch (Exception e) {

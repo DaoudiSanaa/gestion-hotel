@@ -30,7 +30,7 @@ public class RoomAction {
 		return gson.toJson(model);
 	}
 	
-	public String getRoomByKeyword(int id) {
+	public String getRoomById(int id) {
 		model = service.room(id);
 		Gson gson =new Gson();
 		return gson.toJson(model);

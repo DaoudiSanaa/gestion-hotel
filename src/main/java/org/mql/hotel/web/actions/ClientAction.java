@@ -36,6 +36,7 @@ public class ClientAction {
 		Gson gson = new Gson();
 		return gson.toJson(model);
 	}
+
 	
 	public boolean removeClinet(Client c) {
 		return service.removeClient(c);
