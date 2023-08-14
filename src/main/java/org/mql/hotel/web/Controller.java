@@ -39,7 +39,7 @@ public class Controller extends HttpServlet{
 			String cin = request.getParameter("cin");
 			PrintWriter out = response.getWriter();
 			out.println(clientAction.getClientById(cin));
-		}
+		}else if(request.getRequestURI().endsWith("/clients"))
 		
 	}
 	
