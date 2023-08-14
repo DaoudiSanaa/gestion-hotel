@@ -70,7 +70,7 @@ function fillTableR(users){
             <th>ID</th>
             <th>beds</th>
             <th>stat</th>
-            <th>stat</th>
+            <th>price</th>
               </tr>`  ;
 
     for(let i = 0; i < users.length; i++){
