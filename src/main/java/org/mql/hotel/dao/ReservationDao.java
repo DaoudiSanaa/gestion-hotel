@@ -9,7 +9,8 @@ import org.mql.hotel.models.Reservation;
 public interface ReservationDao {
 	public boolean insert(Reservation a);
 	public List<Reservation> selectAll();
-	public Reservation select(int id);
+	public Reservation selectId(int id);
+	public Reservation selectCin(String cin);
 	public Boolean update(Reservation a1 ,Reservation a2);
 	public Boolean delete(Reservation r);
 

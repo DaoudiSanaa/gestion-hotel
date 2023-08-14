@@ -7,6 +7,7 @@ import java.io.PrintWriter;
 import org.mql.hotel.models.Client;
 import org.mql.hotel.web.actions.AdminAction;
 import org.mql.hotel.web.actions.ClientAction;
+import org.mql.hotel.web.actions.ReservationAction;
 import org.mql.hotel.web.actions.RoomAction;
 
 import com.google.gson.Gson;
@@ -22,6 +23,7 @@ public class Controller extends HttpServlet{
 	private ClientAction clientAction;
 	private RoomAction roomAction;
 	private AdminAction adminAction;
+	private ReservationAction reservationAction;
 
 	private static final long serialVersionUID = 1L;
 
@@ -30,7 +32,8 @@ public class Controller extends HttpServlet{
 		super.init();
 		clientAction =  new ClientAction();
 		roomAction = new RoomAction();
-		//adminAction = new AdminAction();
+		adminAction = new AdminAction();
+		reservationAction = new ReservationAction();
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -92,6 +95,20 @@ public class Controller extends HttpServlet{
 			String id = request.getParameter("id");
 			PrintWriter out = response.getWriter();
 			out.println(roomAction.getRoomById(Integer.parseInt(id)));
+		}else if(path.endsWith("/reservations")) {
+			PrintWriter out = response.getWriter();
+			out.println(reservationAction.getAllReservations());
+			
+		}else if (path.endsWith("/reservationId")) {
+			//http://localhost:8080/gestion-hotel/hotel/client?cin=cin
+			String id = request.getParameter("id");
+			PrintWriter out = response.getWriter();
+			out.println(reservationAction.getReservationByRoom(Integer.parseInt(id)));
+		}else if (path.endsWith("/reservationCin")) {
+			//http://localhost:8080/gestion-hotel/hotel/client?cin=cin
+			String cin = request.getParameter("cin");
+			PrintWriter out = response.getWriter();
+			out.println(reservationAction.getReservationByClient(cin));
 		}
 		
 	}

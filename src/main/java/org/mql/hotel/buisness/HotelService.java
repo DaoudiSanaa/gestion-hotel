@@ -27,6 +27,8 @@ public interface HotelService {
 	public Reservation reservation(int id, String cin);
 	public boolean changeReserv(Reservation oldReservation, Reservation newReservation);
 	public boolean removeReservation(Reservation r);
+	public Reservation reservationByClient(String cin);
+	public Reservation reservationByRoom(int id);
 	
 	
 }

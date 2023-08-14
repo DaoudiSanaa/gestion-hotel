@@ -111,8 +111,12 @@ public class HotelServiceDefault implements HotelService{
 
 
 	@Override
-	public Reservation reservation(int id, String cin) {
-		return reservationDao.select(id);
+	public Reservation reservationByRoom(int id) {
+		return reservationDao.selectId(id);
+	}
+	@Override
+	public Reservation reservationByClient(String cin) {
+		return reservationDao.selectCin(cin);
 	}
 
 
@@ -125,6 +129,13 @@ public class HotelServiceDefault implements HotelService{
 	@Override
 	public boolean removeReservation(Reservation r) {
 		return reservationDao.delete(r);
+	}
+
+
+	@Override
+	public Reservation reservation(int id, String cin) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	

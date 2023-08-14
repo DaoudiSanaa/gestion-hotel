@@ -38,7 +38,7 @@ public class Exemple {
 		services.addRoom(r2);
 		services.addRoom(r3);
 		services.addRoom(r1);
-		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");//dateFormat.parse("1989-03-14")
+		//DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");//dateFormat.parse("1989-03-14")
 		Reservation r = new Reservation(c.getCin(), r4.getId(),"1989-03-14", "1989-03-14",1058.20);
 		Reservation rs1 = new Reservation(c1.getCin(), r2.getId(),"1989-03-14", "1989-03-14",1058.20);
 		Reservation rs2 = new Reservation(c1.getCin(), r3.getId(),"1989-03-14", "1989-03-14",1058.20);

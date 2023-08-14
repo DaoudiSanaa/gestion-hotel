@@ -30,7 +30,7 @@ public class ReservationDaoMySQL implements ReservationDao {
 	}
 
 	@Override
-	public Reservation select(int id) {
+	public Reservation selectId(int id) {
 		List<Reservation> reservations=selectAll();
 		for (Reservation reservation : reservations) {
 			if(reservation.getId()==id) {
@@ -41,6 +41,19 @@ public class ReservationDaoMySQL implements ReservationDao {
 		return null;		
 		
 	}
+	@Override
+	public Reservation selectCin(String cin) {
+		List<Reservation> reservations=selectAll();
+		for (Reservation reservation : reservations) {
+			if(reservation.getCin()==cin) {
+				return reservation;
+			}
+			
+		}
+		return null;		
+		
+	}
+
 
 
 	@Override
