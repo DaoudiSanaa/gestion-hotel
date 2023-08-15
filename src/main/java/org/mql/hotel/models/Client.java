@@ -7,7 +7,7 @@ public class Client {
 	private String firstName;
 	private String lastName;
 	private String number;
-	private Date brithDate;
+	private String brithDate;
 	private String sexe;
 	
 	
@@ -21,7 +21,7 @@ public class Client {
 		this.lastName = lastName;
 		this.number = number;
 		this.sexe = sexe;
-		this.brithDate = Date.valueOf(brithDate);
+		this.brithDate = brithDate;
 	}
 	public String getCin() {
 		return cin;
@@ -53,10 +53,10 @@ public class Client {
 	public void setSexe(String sexe) {
 		this.sexe = sexe;
 	}
-	public Date getBrithDate() {
+	public String getBrithDate() {
 		return brithDate;
 	}
-	public void setBrithDate(Date brithDate) {
+	public void setBrithDate(String brithDate) {
 		this.brithDate = brithDate;
 	}
 

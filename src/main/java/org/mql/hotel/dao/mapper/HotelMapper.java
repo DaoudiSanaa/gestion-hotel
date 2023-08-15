@@ -53,7 +53,7 @@ public class HotelMapper {
 			a.setFirstName(row[1]);
 			a.setLastName(row[2]);
 			a.setNumber(row[3]);
-			a.setBrithDate(Date.valueOf(row[4]));
+			a.setBrithDate(row[4]);
 			System.out.println("test : " + row[4]);
 			a.setSexe(row[5]);
 			

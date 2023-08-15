@@ -1,3 +1,5 @@
+
+
 function getAllClients(){
     let table = document.getElementById("table");
     let url = "hotel/clients";
@@ -89,7 +91,7 @@ function fillTableR(users){
 
 function getAllReservations(){
     let table = document.getElementById("table");
-    let url = "hotel/clients";
+    let url = "hotel/reservations";
     let xhr = new XMLHttpRequest();
 
     xhr.open('GET', url, true);
@@ -99,7 +101,7 @@ function getAllReservations(){
             if(xhr.status == 200){
                 console.log(xhr.responseText)
                 let users = JSON.parse(xhr.responseText);
-                console.log(users[0].cin);
+               
                 table.innerHTML += fillTableRS(users);
                 
             }
@@ -112,21 +114,20 @@ function fillTableRS(users){
 	let result="";
     result =`<tr>
             <th>CIN</th>
-            <th>FirstName</th>
-            <th>LatsName</th>
-            <th>Number</th>
-            <th>Sexe</th>
-            <th>Date de Naissance</th>
+            <th>id</th>
+            <th>departure</th>
+            <th>arrival</th>
+            <th>totalPrice</th>
+           
         </tr>`;
 
     for(let i = 0; i < users.length; i++){
         result +=`<tr>
                         <td>${users[i].cin}</td>
-                        <td>${users[i].firstName}</td>
-                        <td>${users[i].lastName}</td>
-                        <td>${users[i].number}</td>
-                        <td>${users[i].sexe}</td>
-                        <td>${users[i].birthday}</td>
+                        <td>${users[i].id}</td>
+                        <td>${users[i].departure}</td>
+                        <td>${users[i].arrival}</td>
+                        <td>${users[i].totalPrice}</td>
                 </tr>`
     }
     return result;

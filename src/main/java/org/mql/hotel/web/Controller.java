@@ -3,8 +3,10 @@ package org.mql.hotel.web;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 
 import org.mql.hotel.models.Client;
+import org.mql.hotel.models.Room;
 import org.mql.hotel.web.actions.AdminAction;
 import org.mql.hotel.web.actions.ClientAction;
 import org.mql.hotel.web.actions.ReservationAction;
@@ -50,40 +52,47 @@ public class Controller extends HttpServlet{
 			out.println(clientAction.getClientById(cin));
 		}
 		else if(path.endsWith("/add-client")){
+			PrintWriter out = response.getWriter();
 			
-		    try {
-		        System.out.println("Nb. de paramètres : " + request.getParameterMap().size());
-
-		        BufferedReader in = request.getReader();
-		        StringBuilder data = new StringBuilder();
-		        String row = "";
-		        while ((row = in.readLine()) != null) {
-		            data.append(row);
-		        }
-		        System.out.println("data : " + data);
-		        
+			System.out.println("Nb. de paramètres : " + request.getParameterMap().size());
+			
+			BufferedReader in = request.getReader();
+			String data = "";
+			String row ="";
+			while ((row = in.readLine()) != null) {
+				data += row;
+			}
+			System.out.println("data : " + data);
 		        Gson gson = new Gson();
-		        Client client = gson.fromJson(data.toString(), Client.class);
+		        Client client = gson.fromJson(data, Client.class);
 		        System.out.println(client);
+		        out.print("{\"status\" : \"OK\","
+						+ "\"model\" : " + gson.toJson(client)
+								+ "}");
 		        
-		        String responseJson = "{\"status\" : \"OK\","
-		                + "\"model\" : " + gson.toJson(client)
-		                + "}";
+		       
+			
+		}else if(path.endsWith("/add-room")){
+			PrintWriter out = response.getWriter();
+			
+			System.out.println("Nb. de paramètres : " + request.getParameterMap().size());
+			
+			BufferedReader in = request.getReader();
+			String data = "";
+			String row ="";
+			while ((row = in.readLine()) != null) {
+				data += row;
+			}
+			System.out.println("data : " + data);
+		        Gson gson = new Gson();
+		        Room room = gson.fromJson(data, Room.class);
+		        System.out.println(room);
+		        out.print("{\"status\" : \"OK\","
+						+ "\"model\" : " + gson.toJson(room)
+								+ "}");
 		        
-		        response.setContentType("application/json");
-		        response.setCharacterEncoding("UTF-8");
-		        response.getWriter().write(responseJson);
-		    } catch (IOException e) {
-		        e.printStackTrace();
-		        String errorResponseJson = "{\"status\" : \"Error\","
-		                + "\"message\" : \"An error occurred while processing the request\""
-		                + "}";
-		        
-		        response.setContentType("application/json");
-		        response.setCharacterEncoding("UTF-8");
-		        response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
-		        response.getWriter().write(errorResponseJson);
-		    }
+		       
+			
 		}
 			
 		else if(path.endsWith("/rooms")) {
@@ -96,26 +105,45 @@ public class Controller extends HttpServlet{
 			PrintWriter out = response.getWriter();
 			out.println(roomAction.getRoomById(Integer.parseInt(id)));
 		}else if(path.endsWith("/reservations")) {
+			//http://localhost:8080/gestion-hotel/hotel/reservations
 			PrintWriter out = response.getWriter();
 			out.println(reservationAction.getAllReservations());
+		
+			
 			
 		}else if (path.endsWith("/reservationId")) {
-			//http://localhost:8080/gestion-hotel/hotel/client?cin=cin
+			
 			String id = request.getParameter("id");
 			PrintWriter out = response.getWriter();
 			out.println(reservationAction.getReservationByRoom(Integer.parseInt(id)));
+		
+		
+		
 		}else if (path.endsWith("/reservationCin")) {
-			//http://localhost:8080/gestion-hotel/hotel/client?cin=cin
+			
 			String cin = request.getParameter("cin");
 			PrintWriter out = response.getWriter();
 			out.println(reservationAction.getReservationByClient(cin));
+		}else if(path.endsWith("/get-clients-by-keyword")) {
+			PrintWriter out = response.getWriter();
+			String keyword = request.getParameter("keyword");
+			clientAction.getClientById(keyword);
+			List<Client> clients = (List<Client>) clientAction.getModel();	
+			
+			Gson gson = new Gson();
+			
+			out.print(gson.toJson(clients));
+			
+		
+			
+			
 		}
 		
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doPost(request, response);
+		doGet(request, response);
 	}
 
 }
