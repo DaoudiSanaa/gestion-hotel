@@ -93,12 +93,6 @@ public class HotelServiceDefault implements HotelService{
 
 
 	@Override
-	public boolean authentication(Admin a) {
-		return adminDao.exist(a);
-	}
-
-
-	@Override
 	public boolean addReservation(Reservation a) {
 		return reservationDao.insert(a);
 	}
@@ -137,6 +131,41 @@ public class HotelServiceDefault implements HotelService{
 		// TODO Auto-generated method stub
 		return null;
 	}
+	@Override
+	public Admin login(String email, String pwd) {
+		Admin user  = getUserByEmail(email);
+		if(user !=  null && user.getPwd().equals(pwd)) {
+			return user;
+		}
+		return null;
+	}
+
+
+	public Admin getUserByEmail(String email) {
+		// TODO Auto-generated method stub
+		return adminDao.select(email);
+	}
+
+
+	@Override
+	public List<Admin> getAllUsers() {
+		// TODO Auto-generated method stub
+		return adminDao.selectAll();
+	}
+
+	@Override
+	public boolean authentication(Admin a) {
+		return adminDao.exist(a);
+	}
+
+
+	@Override
+	public boolean addAdmin(Admin a) {
+		// TODO Auto-generated method stub
+		return adminDao.insert(a);
+	}
+
+
 
 	
 }

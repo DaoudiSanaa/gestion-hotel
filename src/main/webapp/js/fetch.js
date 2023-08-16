@@ -30,7 +30,7 @@ function addRoom(){
 		id : document.getElementById('id').value,
 		stat : document.getElementById('stat').value,
 		beds : document.getElementById('beds').value,
-		price : document.getElementById('price').value,
+		price : document.getElementById('price').value
 	}
 	let options ={
 		method : 'POST',
@@ -46,7 +46,31 @@ function addRoom(){
 	.catch(err => console.log('Erreur : ' + err))
 }
 
+function addReservation(){
+	let url = 'hotel/add-reservation';
+	let result = document.getElementById('result');
+	let data ={
+		id : document.getElementById('id').value,
+		cin : document.getElementById('cin').value,
+		departude : document.getElementById('departude').value,
+		arrival : document.getElementById('arrival').value,
+		totalPrice : document.getElementById('totalPrice').value
+	}
+	let options ={
+		method : 'POST',
+		body : JSON.stringify(data),
+		headers : {
+			'Content-Type' : 'application/json'
+		}
+	}
+	
+	fetch(url, options)
+	.then(response => response.json())
+	.then(data => result.innerHTML = data.status + ' : ' + data.model.name + ' Bien enregistré !! ' )
+	.catch(err => console.log('Erreur : ' + err))
+}
 
+/*
 function getClients() {
 	let keyword = document.getElementById('keyword').value;
 	let url = 'hotel/get-clients-by-keyword?keyword=' + keyword;
@@ -80,3 +104,4 @@ function getClients() {
 	}
 	xhr.send();
 }
+*/

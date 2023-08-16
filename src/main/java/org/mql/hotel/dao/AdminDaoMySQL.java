@@ -2,6 +2,7 @@ package org.mql.hotel.dao;
 
 import java.util.List;
 
+
 import org.mql.hotel.buisness.HotelService;
 import org.mql.hotel.buisness.ServiceFactory;
 import org.mql.hotel.dao.mapper.HotelMapper;
@@ -28,6 +29,28 @@ public class AdminDaoMySQL implements AdminDao {
 	@Override
 	public boolean update(Admin a1, Admin a2) {
 		return db.update(tableName, a1, a2);
+	}
+	@Override
+	public List<Admin> selectAll() {
+	
+		return HotelMapper.getAdmins(db.select(tableName));
+	}
+
+	public Admin select(String email) {
+		List<Admin> admins=selectAll();
+		for (Admin admin : admins) {
+			if(admin.getPwd().equals(email)) {
+				return admin;
+			}
+		}
+		return null;
+		
+	}
+
+	@Override
+	public boolean insert(Admin a) {
+		// TODO Auto-generated method stub
+		return db.insert(tableName,a);
 	}
 
 

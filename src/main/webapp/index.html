@@ -1,20 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestion Hotel</title>
-    <script src="js/xhr.js"></script>
+	<meta charset="UTF-8">
+	<title>gestion hotel</title>
+	<link rel="stylesheet" href="css/style.css">
+	<script src="js/index.js"></script>
 </head>
 <body>
-<h1>Gestion hotel </h1>
-<button onclick="getAllClients()">liste de clients</button>
-<button onclick="getAllRooms()">liste de chambre</button>
-<button onclick="getAllReservations()">liste de reservation</button>
-    <table border="1" id="table">
-   
-     
-    </table>
+	<div class="login-ctr" id="login-ctr">
+		<div>
+			<header>Connectez vous à votre compte</header>
+			<input id="userName" type="text" placeholder="Adress Email">
+			<input id="pwd" type="password" placeholder="Mot de passe">
+			<button onclick="login()">Se Connectez</button>
+		</div>
+		<div>
+			<div>
+				<!-- Opacité -->
+			</div>
+		</div>
+	</div>
 
+	<div class="account" id="account">
+		<header id="user-greetings"></header>
+	</div>
 </body>
 </html>

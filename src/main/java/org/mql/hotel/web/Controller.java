@@ -5,7 +5,9 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
+import org.mql.hotel.models.Admin;
 import org.mql.hotel.models.Client;
+import org.mql.hotel.models.Reservation;
 import org.mql.hotel.models.Room;
 import org.mql.hotel.web.actions.AdminAction;
 import org.mql.hotel.web.actions.ClientAction;
@@ -93,6 +95,26 @@ public class Controller extends HttpServlet{
 		        
 		       
 			
+		}else if(path.endsWith("/add-reservation")){
+			PrintWriter out = response.getWriter();
+			
+			System.out.println("Nb. de paramètres : " + request.getParameterMap().size());
+			
+			BufferedReader in = request.getReader();
+			String data = "";
+			String row ="";
+			while ((row = in.readLine()) != null) {
+				data += row;
+			}
+			System.out.println("data : " + data);
+		        Gson gson = new Gson();
+		        Reservation reservation = gson.fromJson(data, Reservation.class);
+		        System.out.println(reservation);
+		        out.print("{\"status\" : \"OK\","
+						+ "\"model\" : " + gson.toJson(reservation)
+								+ "}");
+		        
+		       			
 		}
 			
 		else if(path.endsWith("/rooms")) {
@@ -137,7 +159,27 @@ public class Controller extends HttpServlet{
 		
 			
 			
+		}else if(path.endsWith("/admins")) {
+			PrintWriter out = response.getWriter();
+			out.println(adminAction.getAllAdmin());
+			
 		}
+		else if(path.endsWith("/login")) {
+			///hotel/login?param1=value1&param2=value2
+			
+			PrintWriter out = response.getWriter();
+			Gson gson = new Gson();
+			String email = request.getParameter("email");
+			String pwd = request.getParameter("pwd");
+			 adminAction.login(email, pwd);
+			
+			Admin admin =  (Admin) adminAction.getModel();	
+			
+			
+			
+			out.print(gson.toJson(admin));
+		}
+	
 		
 	}
 	

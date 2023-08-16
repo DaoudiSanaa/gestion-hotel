@@ -2,6 +2,7 @@ package org.mql.hotel.buisness;
 
 import java.util.List;
 
+
 import org.mql.hotel.models.Admin;
 import org.mql.hotel.models.Client;
 import org.mql.hotel.models.Reservation;
@@ -21,6 +22,10 @@ public interface HotelService {
 	public boolean modifyClient(Client oldClient, Client newClient);
 	
 	public boolean authentication(Admin a);
+	public Admin login(String email, String pwd);
+	public Admin getUserByEmail(String email);
+	public List<Admin> getAllUsers();
+	public boolean addAdmin(Admin a);
 	
 	public boolean addReservation(Reservation a);
 	public List<Reservation> reservations();
